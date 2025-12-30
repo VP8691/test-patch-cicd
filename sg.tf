@@ -5,7 +5,7 @@ resource "aws_security_group" "ec2-sg" {
     vpc_id = aws_vpc.main.id
     name = "lct-sg-with-dy-block"
     dynamic "ingress" {
-        for_each = [22,80]
+        for_each = [22,80,443]
         iterator = port
         content {
           description = "TLS from VPC"
